@@ -1,0 +1,27 @@
+{
+    "name": "ls",
+    "version": "1.0.0",
+    "description": "",
+    "main": "''",
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.jsx?$": "babel-jest"
+        }
+    },
+    "author": "Li,Chao",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-preset-env": "^1.6.1",
+        "jest": "^22.4.3",
+        "regenerator-runtime": "^0.11.1"
+    },
+    "dependencies": {
+        "babel-polyfill": "^6.26.0"
+    }
+}
