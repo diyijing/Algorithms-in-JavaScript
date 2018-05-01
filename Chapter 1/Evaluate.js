@@ -1,11 +1,12 @@
 /**
  *
  * @param {String} expr 运算表达式
+ * @return {Nnumber} 计算结果
  */
 export default function evaluate(expr) {
-    const OPRS = ['+', '-', '*', '/'];
-    const ops = [],
-        vals = [];
+    // const OPRS = ['+', '-', '*', '/'];
+    const ops = [];
+    const vals = [];
     expr = expr.split(' ');
     for (let char of expr) {
         switch (char) {

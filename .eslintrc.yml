@@ -1,0 +1,13 @@
+extends: google
+parserOptions:
+    ecmaVersion: 2017
+parser: babel-eslint
+rules:
+    space-before-function-paren: 0
+    no-undef: 2
+    no-unused-vars: 1
+    require-jsdoc: 0
+    valid-jsdoc: 0
+    one-var: 0
+env:
+    jest: true
