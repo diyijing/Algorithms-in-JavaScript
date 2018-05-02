@@ -23,29 +23,38 @@ test('evaluate ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )', () => {
 test('evaluate (1 + sqrt ( 4 ) )', () => {
     expect(evaluate('( 1 + sqrt ( 4 ) )')).toEqual(3);
 });
+
 describe('test stack and queue', () => {
     test('Stack', () => {
         let a = {};
         const stack = new Stack();
         stack.push(a);
         expect(stack.size()).toEqual(1);
+        for (let item of stack) {
+            expect(item).toContain(a);
+        }
         const b = stack.pop();
         expect(stack.size()).toEqual(0);
         expect(b).toEqual(a);
     });
+
     test('Queue', () => {
-        let a = {},
-            b = {};
+        let a = {key: 'a'},
+            b = {key: 'b'};
         const queue = new Queue();
         queue.enqueue(a);
         expect(queue.size()).toEqual(1);
         queue.enqueue(b);
         expect(queue.size()).toEqual(2);
+        for (let item of queue) {
+            // console.log(item);
+            expect([a, b]).toContain(item);
+        }
         const c = queue.dequeue();
         expect(queue.size()).toEqual(1);
-        expect(c).toEqual(b);
+        expect(c).toEqual(a);
         const d = queue.dequeue();
         expect(queue.size()).toEqual(0);
-        expect(d).toEqual(a);
+        expect(d).toEqual(b);
     });
 });

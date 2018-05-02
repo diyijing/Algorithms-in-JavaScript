@@ -11,3 +11,6 @@ rules:
     one-var: 0
 env:
     jest: true
+    es6: true
+# globals:
+    # Symbol: true

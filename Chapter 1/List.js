@@ -27,6 +27,22 @@ class List {
         this.N--;
         return item;
     }
+    [Symbol.iterator]() {
+        let node = this.first;
+        return {
+            next: function() {
+                let done = !node.next;
+                const oldnode = node;
+                if (!done) {
+                    node = node.next;
+                }
+                return {
+                    value: oldnode.item,
+                    done,
+                };
+            },
+        };
+    }
 }
 
 export class Stack extends List {
@@ -62,5 +78,21 @@ export class Queue extends List {
             this.last = null;
         }
         return item;
+    }
+    [Symbol.iterator]() {
+        let node = this.first;
+        return {
+            next: function() {
+                let done = !node.next;
+                const oldnode = node;
+                if (!done) {
+                    node = node.next;
+                }
+                return {
+                    value: oldnode.item,
+                    done,
+                };
+            },
+        };
     }
 }
