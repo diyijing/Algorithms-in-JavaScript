@@ -12,15 +12,25 @@ export class Node {
     }
 }
 
-export class Stack {
+class List {
     first = null;
     N = 0;
-    isEmpty() {
-        return this.first === null;
-    }
     size() {
         return this.N;
     }
+    isEmpty() {
+        return this.first === null;
+    }
+    pop() {
+        const item = this.first.item;
+        this.first = this.first.next;
+        this.N--;
+        return item;
+    }
+}
+
+export class Stack extends List {
+    first = null;
     push(item) {
         const oldfirst = this.first;
         const first = new Node(item);
@@ -28,10 +38,29 @@ export class Stack {
         this.N++;
         this.first = first;
     }
-    pop() {
-        const item = this.first.item;
-        this.first = this.first.next;
-        this.N--;
+}
+
+export class Queue extends List {
+    last = null;
+    isEmpty() {
+        return this.first === null;
+    }
+    enqueue(item) {
+        const oldlast = this.last;
+        const last = new Node(item);
+        this.N++;
+        if (this.isEmpty()) {
+            this.first = last;
+        } else {
+            oldlast.next = last;
+        }
+        this.last = last;
+    }
+    dequeue() {
+        const item = this.pop();
+        if (this.isEmpty()) {
+            this.last = null;
+        }
         return item;
     }
 }
